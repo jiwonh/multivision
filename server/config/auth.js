@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 exports.authenticate = function(req, res, next) {
-    req.body.username = req.body.username.toLowerCase();
+    req.body.username = req.body.username ? req.body.username.toLowerCase() : req.body.username;
     var auth = passport.authenticate('local', function(err, user) {
         //console.log('middelware passport.authenticate()');
         if (err) {
